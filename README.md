@@ -8,9 +8,9 @@
 Este projeto implementa **quatro soluções diferentes** para o problema do **Jantar dos Filósofos** (Dijkstra, 1965), abordando os desafios de **deadlock**, **starvation** e **fairness** em sistemas concorrentes.
 
 - **Tarefa 1**: Implementação com deadlock (demonstração)
-- **Tarefa 2**: Prevenção via ordem diferente de aquisição
-- **Tarefa 3**: Prevenção via semáforos
-- **Tarefa 4**: Prevenção via monitores com fairness
+- **Tarefa 2**: Prevenção via limite de filósofos comendo simultaneamente
+- **Tarefa 3**: Prevenção via ordenação de recursos
+- **Tarefa 4**: Prevenção via hierarquia com arbitrador (Mesa)
 
 📄 **Documentação completa**: Consulte [RELATORIO.md](RELATORIO.md) para análise detalhada e [docs/ARQUITETURA.md](docs/ARQUITETURA.md) para conceitos técnicos
 
@@ -19,41 +19,32 @@ Este projeto implementa **quatro soluções diferentes** para o problema do **Ja
 ## 🗂️ Estrutura do Repositório
 
 ```
-prova-lucas-ppd/
+prova-jantar-filosofos/
 ├── README.md                    # Este arquivo - instruções gerais
-├── RELATORIO.md                 # Relatório comparativo completo (Tarefa 5)
-├── RESUMO_EXECUTIVO.md          # Resumo executivo do projeto
-├── GUIA_TESTE.md                # Guia de testes
+├── RELATORIO.md                 # Relatório completo do projeto
+├── .gitignore                   # Arquivos ignorados pelo Git
 ├── junit-platform-console-standalone-1.9.3.jar  # JUnit para testes
 ├── src/
-│   ├── jantarfilosofo/          # Implementação base/original
-│   │   ├── DESAFIO001.md
-│   │   ├── Filosofo.java
-│   │   └── Main.java
 │   ├── tarefa1/                 # ❌ Implementação com DEADLOCK
 │   │   ├── Filosofo.java
 │   │   ├── Garfo.java
-│   │   ├── Main.java
-│   │   └── README.md
-│   ├── tarefa2/                 # ✅ Solução: Ordem diferente
+│   │   └── Main.java
+│   ├── tarefa2/                 # ✅ Solução: Limite de filósofos
 │   │   ├── Filosofo.java
 │   │   ├── Garfo.java
-│   │   ├── Main.java
-│   │   └── README.md
-│   ├── tarefa3/                 # ✅ Solução: Semáforos
+│   │   └── Main.java
+│   ├── tarefa3/                 # ✅ Solução: Ordenação de recursos
 │   │   ├── Filosofo.java
 │   │   ├── Garfo.java
-│   │   ├── Main.java
-│   │   └── README.md
-│   └── tarefa4/                 # ✅ Solução: Monitores + Fairness
+│   │   └── Main.java
+│   └── tarefa4/                 # ✅ Solução: Hierarquia + Arbitrador
 │       ├── Filosofo.java
 │       ├── Mesa.java
-│       ├── Main.java
-│       └── README.md
+│       └── Main.java
 ├── test/
-│   ├── Tarefa2Test.java         # Testes TDD para Tarefa 2
-│   ├── Tarefa3Test.java         # Testes TDD para Tarefa 3
-│   └── Tarefa4Test.java         # Testes TDD para Tarefa 4
+│   ├── Tarefa2Test.java         # Testes para Tarefa 2
+│   ├── Tarefa3Test.java         # Testes para Tarefa 3
+│   └── Tarefa4Test.java         # Testes para Tarefa 4
 └── docs/
     └── ARQUITETURA.md           # Documentação técnica da arquitetura
 ```
@@ -73,22 +64,13 @@ Navegue até o diretório raiz do projeto e compile todas as tarefas:
 
 ```bash
 # Navegar para o diretório do projeto
-cd c:\Users\isabe\prova-lucas-ppd
+cd c:\Users\isabe\prova-jantar-filosofos
 
 # Compilar todas as tarefas
 javac src/tarefa1/*.java
 javac src/tarefa2/*.java
 javac src/tarefa3/*.java
 javac src/tarefa4/*.java
-```
-
-## ⚙️ Como Executar
-
-### Compilar
-
-```bash
-cd c:\Users\isabe\prova-lucas-ppd
-javac src/tarefa1/*.java src/tarefa2/*.java src/tarefa3/*.java src/tarefa4/*.java
 ```
 
 ### Executar
